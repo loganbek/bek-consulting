@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bek Consulting — Security-Focused Software Consulting</title>
+<meta name="description" content="Bek Consulting is an independent security consultancy: offensive security assessments, smart contract security, AI automation, and software development consulting.">
+<style>
+  :root{
+    --bg:#0b0e13; --panel:#12161d; --line:#232a35;
+    --text:#e8edf2; --muted:#98a6b5; --blue:#4aa8dd;
+  }
+  [data-theme="light"]{--bg:#ffffff; --panel:#f4f6f8; --line:#dde3e9; --text:#12181f; --muted:#4d5c6a}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  .theme-toggle{position:fixed;top:16px;right:16px;z-index:10;border:1px solid var(--line);background:var(--panel);color:var(--text);padding:8px 14px;font-size:.9rem;cursor:pointer}
+  header{padding:56px 0 32px;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:16px}
+  .brand svg{width:64px;height:64px;flex:0 0 64px}
+  .firm{font-size:2rem;font-weight:700;letter-spacing:.3px;line-height:1.1}
+  .firm span{color:var(--blue)}
+  .tagline{margin-top:12px;font-size:1.1rem;color:var(--muted);max-width:640px}
+  section{padding:36px 0 4px}
+  h2{font-size:.95rem;text-transform:uppercase;letter-spacing:2px;color:var(--blue);margin-bottom:16px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:640px){.grid{grid-template-columns:1fr} .firm{font-size:1.7rem}}
+  .card{background:var(--panel);border:1px solid var(--line);padding:20px}
+  .card h3{font-size:1.02rem;margin-bottom:6px}
+  .card p{color:var(--muted);font-size:.95rem}
+  .about p{color:var(--muted);margin-bottom:14px}
+  .about strong{color:var(--text)}
+  .creds{display:flex;flex-wrap:wrap;gap:10px}
+  .badge{background:var(--panel);border:1px solid var(--line);padding:8px 14px;font-size:.9rem}
+  .badge b{color:var(--blue)}
+  .contact{background:var(--panel);border:1px solid var(--line);padding:24px}
+  .contact p{color:var(--muted);margin-bottom:10px}
+  .contact .email{font-size:1.15rem}
+  .links{margin-top:8px}
+  .links a{margin-right:18px}
+  footer{margin-top:44px;padding:24px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+
+  .beek-btn{position:fixed;bottom:20px;right:20px;z-index:20;border:1px solid var(--line);background:var(--panel);color:var(--text);padding:8px 16px 8px 8px;font-size:.95rem;cursor:pointer;display:flex;align-items:center;gap:8px}
+  .beek-btn img{width:32px;height:32px;object-fit:cover}
+  .beek-panel{position:fixed;bottom:76px;right:20px;z-index:20;width:320px;max-width:calc(100vw - 40px);background:var(--panel);border:1px solid var(--line);display:none}
+  .beek-panel.open{display:block}
+  .beek-head{background:var(--blue);color:#fff;padding:12px 14px;font-weight:700;display:flex;align-items:center;gap:10px}
+  .beek-head img{width:40px;height:40px;object-fit:cover;flex-shrink:0}
+  .beek-head small{display:block;font-weight:400;opacity:.9}
+  .beek-msgs{padding:12px;height:240px;overflow:auto}
+  .beek-msgs p{margin-bottom:10px;font-size:.92rem}
+  .beek-msgs .user{color:var(--blue)}
+  .beek-msgs .beek{color:var(--muted)}
+  .beek-form{display:flex;border-top:1px solid var(--line)}
+  .beek-form input{flex:1;border:0;background:var(--bg);color:var(--text);padding:10px;font-size:.92rem;outline:none}
+  .beek-form button{border:0;border-left:1px solid var(--line);background:var(--blue);color:#fff;padding:10px 14px;cursor:pointer}
+</style>
+</head>
+<body>
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">Light mode</button>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <!-- Recreated Bek Consulting mark (SVG, drawn from the uploaded logo — clean approximation, not the original file) -->
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bek Consulting mark">
+        <polygon points="0,0 52,0 0,52" fill="#5a5a5a"/>
+        <polygon points="200,0 148,0 200,52" fill="#5a5a5a"/>
+        <polygon points="0,200 52,200 0,148" fill="#5a5a5a"/>
+        <polygon points="200,200 148,200 200,148" fill="#5a5a5a"/>
+        <g fill="none" stroke-width="24">
+          <path d="M 100 18 A 82 82 0 0 0 18 100" stroke="#4aa8dd"/>
+          <path d="M 182 100 A 82 82 0 0 0 100 18" stroke="#ed1c24"/>
+          <path d="M 100 182 A 82 82 0 0 1 18 100" stroke="#a8c93a"/>
+          <path d="M 182 100 A 82 82 0 0 1 100 182" stroke="#f5b80d"/>
+        </g>
+        <g stroke-width="16">
+          <line x1="100" y1="100" x2="64" y2="64" stroke="#4aa8dd"/>
+          <line x1="100" y1="100" x2="136" y2="64" stroke="#ed1c24"/>
+          <line x1="100" y1="100" x2="64" y2="136" stroke="#a8c93a"/>
+          <line x1="100" y1="100" x2="136" y2="136" stroke="#f5b80d"/>
+        </g>
+        <g fill="none" stroke-width="13">
+          <circle cx="64" cy="64" r="16" stroke="#4aa8dd"/>
+          <circle cx="136" cy="64" r="16" stroke="#ed1c24"/>
+          <circle cx="64" cy="136" r="16" stroke="#a8c93a"/>
+          <circle cx="136" cy="136" r="16" stroke="#f5b80d"/>
+        </g>
+      </svg>
+      <div class="firm">Bek <span>Consulting</span></div>
+    </div>
+    <p class="tagline">Security-focused software consulting — offensive security, smart contract assurance, and AI automation, delivered by a practitioner with 20+ years in software engineering.</p>
+  </header>
+
+  <section>
+    <h2>Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Offensive Security Assessments &amp; Bug Bounty Research</h3>
+        <p>Authorized vulnerability research and penetration testing: web application security assessment, attack-surface analysis, and proof-of-concept validation under defined rules of engagement, with coordinated disclosure.</p>
+      </div>
+      <div class="card">
+        <h3>Web3 / Smart Contract Security</h3>
+        <p>Manual Solidity code review and security research for DeFi protocols, including local-fork proof-of-concept development and responsible disclosure through established bounty platforms.</p>
+      </div>
+      <div class="card">
+        <h3>AI Automation &amp; LLM Integration</h3>
+        <p>Design and implementation of agentic workflows and LLM-powered automation — orchestration pipelines, tooling integration, and process automation built on frameworks such as n8n.</p>
+      </div>
+      <div class="card">
+        <h3>Software Development Consulting</h3>
+        <p>Full-stack development and advisory work in JavaScript/TypeScript, React, Node, and Python, from enterprise platform configuration to independent product engineering.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>About</h2>
+    <p>Bek Consulting is the independent practice of <strong>Logan Taylor Bek</strong>, a security-focused software engineer and consultant based in Oakland, California, with <strong>20+ years of programming experience</strong>.</p>
+    <p>His background spans offensive security and defensive analysis, Web3 development — he was a <strong>founding developer of the KogeCoin DeFi ecosystem on Polygon</strong> and has operated a bug bounty program on Immunefi as a program owner — and enterprise software consulting, including Oracle CPQ engagements and a DevOps stint at Facebook.</p>
+    <p>Current research focuses on manual code review and proof-of-concept development against in-scope DeFi protocols, performed on local forks under each program's published rules of engagement. He holds a <strong>B.S. in Computer Information Science from the University of Oregon (2014)</strong>.</p>
+  </section>
+
+  <section>
+    <h2>Credentials</h2>
+    <div class="creds">
+      <div class="badge"><b>CBBH</b> — HTB Certified Bug Bounty Hunter</div>
+      <div class="badge"><b>CPTS</b> — HTB Certified Penetration Testing Specialist</div>
+      <div class="badge"><b>CDSA</b> — HTB Certified Defensive Security Analyst</div>
+      <div class="badge"><b>Top 1%</b> — Hack The Box Academy</div>
+      <div class="badge">Founding Developer — KogeCoin (Polygon)</div>
+      <div class="badge">Bug Bounty Program Operator — Immunefi</div>
+      <div class="badge">B.S. Computer Information Science — University of Oregon</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <div class="contact">
+      <p>For consulting inquiries and authorized security research engagements:</p>
+      <p class="email"><a href="mailto:logan@bekconsulting.info">logan@bekconsulting.info</a></p>
+      <p class="links">
+        <a href="https://github.com/loganbek">GitHub — github.com/loganbek</a>
+        <a href="https://www.linkedin.com/in/loganbek">LinkedIn — linkedin.com/in/loganbek</a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Bek Consulting · Oakland, California · All security research is performed only on systems owned by the researcher or within the authorized scope of a published program.
+  </footer>
+
+</div>
+
+<button class="beek-btn" id="beekBtn" aria-label="Chat with Beek"><img src="beek-avatar.webp" alt=""> Chat with Beek</button>
+<div class="beek-panel" id="beekPanel" role="dialog" aria-label="Beek assistant">
+  <div class="beek-head"><img src="beek-avatar.webp" alt=""><div>Beek <small>Your bird's-eye guide to Bek Consulting</small></div></div>
+  <div class="beek-msgs" id="beekMsgs">
+    <p class="beek"><b>Beek:</b> Hi! I'm Beek. Ask me about penetration testing, smart contracts, AI automation, or how to get in touch.</p>
+  </div>
+  <form class="beek-form" id="beekForm">
+    <input id="beekInput" type="text" placeholder="Ask Beek…" autocomplete="off" aria-label="Ask Beek">
+    <button type="submit">Send</button>
+  </form>
+</div>
+<script>
+(function(){
+  var btn = document.getElementById('themeToggle');
+  function apply(theme){
+    document.documentElement.setAttribute('data-theme', theme);
+    btn.textContent = theme === 'light' ? 'Dark mode' : 'Light mode';
+    try { localStorage.setItem('bek-theme', theme); } catch(e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('bek-theme'); } catch(e) {}
+  apply(saved || 'dark');
+  btn.addEventListener('click', function(){
+    var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+    apply(cur === 'light' ? 'dark' : 'light');
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var btn = document.getElementById('beekBtn');
+  var panel = document.getElementById('beekPanel');
+  var form = document.getElementById('beekForm');
+  var input = document.getElementById('beekInput');
+  var msgs = document.getElementById('beekMsgs');
+  // Real-LLM backend: set window.BEEK_API_URL before this script to point at
+  // your deployed Worker, e.g. https://bek-beek.<subdomain>.workers.dev/api/beek
+  // If the Worker is unreachable (not deployed yet, or the daily free cap is
+  // hit), Beek silently falls back to the built-in scripted answers below.
+  var BEEK_API = window.BEEK_API_URL || 'https://bek-beek.loganbek.workers.dev/api/beek';
+  var beekHistory = [];
+  btn.addEventListener('click', function(){ panel.classList.toggle('open'); if(panel.classList.contains('open')){ input.focus(); } });
+  function reply(q){
+    q = q.toLowerCase();
+    if(q.indexOf('penetration') !== -1 || q.indexOf('pentest') !== -1 || q.indexOf('bug bounty') !== -1)
+      return "Penetration testing and bug bounty research: authorized web app assessments, attack-surface analysis, and proof-of-concept validation under defined rules of engagement, with coordinated disclosure.";
+    if(q.indexOf('smart contract') !== -1 || q.indexOf('solidity') !== -1 || q.indexOf('web3') !== -1 || q.indexOf('defi') !== -1)
+      return "Smart contract security: manual Solidity review for DeFi protocols, local-fork proof-of-concept development, and responsible disclosure. Logan was a founding developer of KogeCoin on Polygon and ran an Immunefi bounty program.";
+    if(q.indexOf('ai') !== -1 || q.indexOf('automation') !== -1)
+      return "AI automation: agentic workflows and LLM-powered automation — orchestration pipelines, tooling integration, and process automation, often built with n8n.";
+    if(q.indexOf('price') !== -1 || q.indexOf('cost') !== -1 || q.indexOf('quote') !== -1)
+      return "No prices are listed here — engagements are scoped per project. Email logan@bekconsulting.info with what you need and you'll get a scoping reply.";
+    if(q.indexOf('contact') !== -1 || q.indexOf('email') !== -1 || q.indexOf('hire') !== -1)
+      return "You can reach Logan at logan@bekconsulting.info, or via GitHub (github.com/loganbek) and LinkedIn (linkedin.com/in/loganbek).";
+    if(q.indexOf('credential') !== -1 || q.indexOf('cert') !== -1 || q.indexOf('experience') !== -1)
+      return "Credentials: CBBH, CPTS, and CDSA from Hack The Box Academy (Top 1%), plus 20+ years in software engineering and a B.S. from the University of Oregon.";
+    if(q.indexOf('where') !== -1 || q.indexOf('location') !== -1 || q.indexOf('oakland') !== -1)
+      return "Bek Consulting is based in Oakland, California, and works remotely with clients elsewhere.";
+    return "I can help with services, credentials, or contact details — try asking about penetration testing, smart contracts, AI automation, or pricing. For anything else, email logan@bekconsulting.info.";
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var q = input.value.trim();
+    if(!q) return;
+    var u = document.createElement('p'); u.className = 'user'; u.innerHTML = '<b>You:</b> ' + q.replace(/</g, '&lt;');
+    msgs.appendChild(u);
+    input.value = '';
+    var b = document.createElement('p'); b.className = 'beek'; b.innerHTML = '<b>Beek:</b> Thinking…';
+    msgs.appendChild(b);
+    msgs.scrollTop = msgs.scrollHeight;
+    beekHistory.push({role: 'user', text: q});
+    fetch(BEEK_API, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({message: q, history: beekHistory.slice(0, -1)})
+    }).then(function(r){ return r.ok ? r.json() : Promise.reject(new Error('api')); })
+    .then(function(data){
+      var text = (data && data.reply) ? data.reply : reply(q);
+      b.innerHTML = '<b>Beek:</b> ' + text.replace(/</g, '&lt;');
+      beekHistory.push({role: 'assistant', text: text});
+    }).catch(function(){
+      var text = reply(q);
+      b.innerHTML = '<b>Beek:</b> ' + text;
+      beekHistory.push({role: 'assistant', text: text});
+    }).finally(function(){
+      msgs.scrollTop = msgs.scrollHeight;
+    });
+  });
+})();
+</script>
+</body>
+</html>
