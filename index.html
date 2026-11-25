@@ -199,6 +199,8 @@
   btn.addEventListener('click', function(){ panel.classList.toggle('open'); if(panel.classList.contains('open')){ input.focus(); } });
   function reply(q){
     q = q.toLowerCase();
+    if(q.indexOf('version') !== -1)
+      return "I'm Beek, version 0.0.1.";
     if(q.indexOf('penetration') !== -1 || q.indexOf('pentest') !== -1 || q.indexOf('bug bounty') !== -1)
       return "Penetration testing and bug bounty research: authorized web app assessments, attack-surface analysis, and proof-of-concept validation under defined rules of engagement, with coordinated disclosure.";
     if(q.indexOf('smart contract') !== -1 || q.indexOf('solidity') !== -1 || q.indexOf('web3') !== -1 || q.indexOf('defi') !== -1)
