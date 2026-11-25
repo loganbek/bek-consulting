@@ -205,9 +205,11 @@
       return "Penetration testing and bug bounty research: authorized web app assessments, attack-surface analysis, and proof-of-concept validation under defined rules of engagement, with coordinated disclosure.";
     if(q.indexOf('smart contract') !== -1 || q.indexOf('solidity') !== -1 || q.indexOf('web3') !== -1 || q.indexOf('defi') !== -1)
       return "Smart contract security: manual Solidity review for DeFi protocols, local-fork proof-of-concept development, and responsible disclosure. Logan was a founding developer of KogeCoin on Polygon and ran an Immunefi bounty program.";
-    if(q.indexOf('ai') !== -1 || q.indexOf('automation') !== -1)
+    if(/(^|[^a-z])ai([^a-z]|$)/.test(q) || q.indexOf('automation') !== -1)
       return "AI automation: agentic workflows and LLM-powered automation — orchestration pipelines, tooling integration, and process automation, often built with n8n.";
-    if(q.indexOf('price') !== -1 || q.indexOf('cost') !== -1 || q.indexOf('quote') !== -1)
+    if(q.indexOf('service') !== -1 || q.indexOf('consult') !== -1 || q.indexOf('software') !== -1 || q.indexOf('develop') !== -1)
+      return "Bek Consulting offers four services: offensive security assessments and bug bounty research; Web3 and smart contract security; AI automation and LLM integration; and software development consulting. Email logan@bekconsulting.info with what you need and you'll get a scoping reply.";
+    if(q.indexOf('price') !== -1 || q.indexOf('pricing') !== -1 || q.indexOf('cost') !== -1 || q.indexOf('quote') !== -1 || q.indexOf('rate') !== -1)
       return "No prices are listed here — engagements are scoped per project. Email logan@bekconsulting.info with what you need and you'll get a scoping reply.";
     if(q.indexOf('contact') !== -1 || q.indexOf('email') !== -1 || q.indexOf('hire') !== -1)
       return "You can reach Logan at logan@bekconsulting.info, or via GitHub (github.com/loganbek) and LinkedIn (linkedin.com/in/loganbek).";
